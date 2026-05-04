@@ -1,6 +1,7 @@
 # Local Wikipedia RAG Assistant
 
 github link: github.com/rumetla/wiki-rag-assistant
+demo link: https://youtu.be/dxfyIPjm8C0
 
 A ChatGPT-style question-answering system about famous **people** and **places**, running 100% locally on your laptop. The system ingests Wikipedia articles, embeds them with a local model, stores them in ChromaDB, and uses a local Ollama LLM to generate grounded answers. If the answer isn't in the retrieved context, it replies **"I don't know."**
 
