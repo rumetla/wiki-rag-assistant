@@ -1,0 +1,23 @@
+# Local Wikipedia RAG Project Rules
+
+## Core Principles
+- **Local Only:** Never suggest or use external APIs (OpenAI, Anthropic, Pinecone, etc.). 
+- **Native-First:** Prioritize Python native functionality over heavy abstractions like LangChain or LlamaIndex for core logic (chunking, retrieval, logic).
+- **Grounding:** Ensure the system strictly answers based on retrieved context. If information is missing, the response MUST be "I don't know".
+
+## Technical Stack
+
+- **Language:** Python 3.x
+- **LLM/Embeddings:** Ollama (Llama 3.2 3b, Phi3, or Mistral).
+- **Vector Store:** ChromaDB or SQLite.
+- **UI:** Streamlit or CLI.
+
+## Specific Implementation Guidelines
+- **Chunking Strategy:** Implement custom chunking logic (e.g., fixed size with overlap) instead of using library-wrapped splitters.
+- **Metadata Handling:** When storing embeddings, include metadata to distinguish between 'person' and 'place'.
+- **Retrieval Logic:** Implement a routing layer (keyword or rule-based) to decide if a query targets a person, a place, or both before querying the vector store.
+- **Documentation:** Always ensure the following files are updated: `product_prd.md`, `README.md`, and `recommendation.md`[cite: 1].
+
+## Code Style
+- Use clear type hints and docstrings for all functions.
+- Maintain modular scripts: `ingest.py`, `vector_store.py`, `rag_engine.py`, and `app.py`.
